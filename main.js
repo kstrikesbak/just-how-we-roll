@@ -51,11 +51,14 @@ function changeDoubleD6RollPics (){
     document.querySelector('#double-d6-roll-2').src=`./images/d6/${rollAgain}.png`
 }
 
-function changeDoubleD12RollPic (){
+function changeD12RollPic (){
     let roll = getRandomNumber(12)
-    if (roll<=12) { 
-        document.querySelector('#d12-roll').src=`./images/numbers/${roll}.png`
+    document.querySelector('#d12-roll').src=`./images/numbers/${roll}.png`
 }
+
+function changeD20RollPic () {
+    let roll = getRandomNumber(20)
+    document.querySelector('#d20-roll').src=`./images/numbers/${roll}.png`
 }
 
 
@@ -70,7 +73,9 @@ doubleD6First.addEventListener('click',changeDoubleD6RollPics)
 const doubleD6Second = document.querySelector('#double-d6-roll-2')
 doubleD6Second.addEventListener('click',changeDoubleD6RollPics)
 const d12 = document.querySelector('#d12-roll')
-d12.addEventListener('click', changeDoubleD12RollPic)
+d12.addEventListener('click', changeD12RollPic)
+const d20 = document.querySelector('#d20-roll')
+d20.addEventListener('click', changeD20RollPic)
 
 
 /****************
