@@ -42,15 +42,17 @@ function changeD6RollPic (){
     // const newD6 = document.querySelector('#d6-roll')
     newD6.src = `./images/d6/${roll}.png`
     sixes.push(roll)
-    document.querySelector('#d6-rolls-mean').innerText = mean(sixes)
+    document.querySelector('#d6-rolls-mean').innerText = mean(sixes).toFixed(2)
 }
-changeD6RollPic()
+// changeD6RollPic()
 
 function changeDoubleD6RollPics (){
     let roll = getRandomNumber(6)
     let rollAgain = getRandomNumber(6)
     document.querySelector('#double-d6-roll-1').src=`./images/d6/${roll}.png`
     document.querySelector('#double-d6-roll-2').src=`./images/d6/${rollAgain}.png`
+    doubleSixes.push(roll+rollAgain)
+    document.querySelector('#double-d6-rolls-mean').innerText = mean(doubleSixes).toFixed(2)
 }
 
 function changeD12RollPic (){
@@ -84,16 +86,16 @@ d20.addEventListener('click', changeD20RollPic)
 /****************
  * MATH SECTION *
  ****************/
-function mean () {
+function mean (arr) {
     let sum = 0 
-    for (let i = 0 ; i < sixes.length ; i++) {
-        sum += sixes[i]
+    for (let i = 0 ; i < arr.length ; i++) {
+        sum += arr[i]
     }
-    return sum / sixes.length
+    return sum / arr.length
     
 }
 
-mean()
+// mean()
 /*********
  * RESET *
  *********/
