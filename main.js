@@ -43,6 +43,8 @@ function changeD6RollPic (){
     newD6.src = `./images/d6/${roll}.png`
     sixes.push(roll)
     document.querySelector('#d6-rolls-mean').innerText = mean(sixes).toFixed(2)
+    document.querySelector('#d6-rolls-median').innerText = median(sixes).toFixed(2)
+    
 }
 // changeD6RollPic()
 
@@ -53,16 +55,23 @@ function changeDoubleD6RollPics (){
     document.querySelector('#double-d6-roll-2').src=`./images/d6/${rollAgain}.png`
     doubleSixes.push(roll+rollAgain)
     document.querySelector('#double-d6-rolls-mean').innerText = mean(doubleSixes).toFixed(2)
+    document.querySelector('#double-d6-rolls-median').innerText = median(doubleSixes).toFixed(2)
 }
 
 function changeD12RollPic (){
     let roll = getRandomNumber(12)
     document.querySelector('#d12-roll').src=`./images/numbers/${roll}.png`
+    twelves.push(roll)
+    document.querySelector('#d12-rolls-mean').innerText = mean(twelves).toFixed(2)
+    document.querySelector('#d12-rolls-median').innerText = median(twelves).toFixed(2)
 }
 
 function changeD20RollPic () {
     let roll = getRandomNumber(20)
     document.querySelector('#d20-roll').src=`./images/numbers/${roll}.png`
+    twenties.push(roll)
+    document.querySelector('#d20-rolls-mean').innerText = mean(twenties).toFixed(2)
+    document.querySelector('#d20-rolls-median').innerText = median(twenties).toFixed(2)
 }
 
 
@@ -93,6 +102,17 @@ function mean (arr) {
     }
     return sum / arr.length
     
+}
+
+function median (arr) {
+    let median = 0;
+    arr.sort();
+    if (arr.length % 2 === 0){
+        median = (arr[arr.length / 2 -1] + arr[arr.length / 2]) / 2;
+    } else {
+    median = arr[(arr.length - 1) / 2];
+}
+return median;
 }
 
 // mean()
