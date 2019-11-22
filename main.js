@@ -120,12 +120,25 @@ function median (arr) {
 return median;
 }
 
+function mode (rolls) {
+    const counts = {};
+    let highestCount = 0 ;
+    let mode = 0 ;
+    for (const currentRoll of rolls) {
+        if (currentRoll in counts) {
+            counts[currentRoll]++;
+        } else {
+            counts[currentRoll]=1;
+        }
+        
+        if (counts[currentRoll]>highestCount) {
+            highestCount = counts[currentRoll];
+            mode = currentRoll;
+        }
+    }
+    return mode
+}
 
-
-// mean()
-/*********
- * RESET *
- *********/
 
 const reset1 = document.querySelector('#reset-button')
 reset1.addEventListener('click',resetPage)
